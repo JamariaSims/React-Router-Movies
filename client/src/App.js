@@ -6,6 +6,7 @@ import {
 	Link,
 	useParams,
 	useRouteMatch,
+	Switch,
 } from "react-router-dom";
 import axios from "axios";
 
@@ -49,12 +50,14 @@ export default function App() {
 						]
 					}
 				/>
-				<Route exact path="/" component={"MovieList"}>
-					<MovieList movies={movieList} />
-				</Route>
-				<Route path="/movies/:id">
-					<Movie />
-				</Route>
+				<Switch>
+					<Route exact path="/" component={"MovieList"}>
+						<MovieList movies={movieList} />
+					</Route>
+					<Route path="/movies/:id" component={"id"}>
+						<Movie />
+					</Route>
+				</Switch>
 			</div>
 		</Router>
 	);
